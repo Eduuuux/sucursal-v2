@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import sucursal.sucursal.model.Personal;
 import sucursal.sucursal.model.Sucursal;
+import sucursal.sucursal.service.PersonalService;
 import sucursal.sucursal.service.SucursalService;
 
 
@@ -48,7 +50,7 @@ public class SucursalController {
         }
     }
 
-    @PutMapping("/actualizar/{idSucursal}")
+    @PutMapping("/actualizar/{id}")
     public ResponseEntity<Sucursal>updateById(@PathVariable int idSucursal, @RequestBody Sucursal sucursal) {
         Sucursal suc = sucursalService.updateById(idSucursal, sucursal);
         if (suc != null) {
@@ -69,6 +71,20 @@ public class SucursalController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @Autowired
+    private PersonalService personalService;
+
+    @GetMapping("/{idSucursal}/personal")
+    public ResponseEntity<List<Personal>> getPersonalBySucursal(@PathVariable int idSucursal) {
+    List<Personal> personals = personalService.findBySucursalId(idSucursal);
+    if (!personals.isEmpty()) {
+        return new ResponseEntity<>(personals, HttpStatus.OK);
+    } else {
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+}
+
     
 
 

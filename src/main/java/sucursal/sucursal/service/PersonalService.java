@@ -22,6 +22,10 @@ public class PersonalService {
         return personalRepository.findById(idPersonal);
     }
 
+    public List<Personal> findBySucursalId(int idSucursal) {
+        return personalRepository.findBySucursal_IdSucursal(idSucursal);
+}
+
     public Personal guardarPersonal(Personal personal) {
         return personalRepository.save(personal);
     }

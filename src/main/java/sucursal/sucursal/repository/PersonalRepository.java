@@ -18,4 +18,7 @@ public interface PersonalRepository extends JpaRepository<Personal,Integer>{
     Personal findById(int idPersonal);
 
     List<Personal> findAll();
+
+    List<Personal> findBySucursal_IdSucursal(int idSucursal);
+
 }

@@ -68,6 +68,16 @@ public class PersonalController {
         }
     }
 
+    // @GetMapping("/sucursal/{idSucursal}")
+    // public ResponseEntity<List<Personal>> getBySucursalId(@PathVariable int idSucursal) {
+    //     List<Personal> personals = personalService.findBySucursalId(idSucursal);
+    //     if (!personals.isEmpty()) {
+    //         return new ResponseEntity<>(personals, HttpStatus.OK);
+    //     } else {
+    //         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    //     }
+    // }
+
 
 
 

@@ -18,4 +18,6 @@ public interface SucursalRepository extends JpaRepository<Sucursal,Integer> {
     Sucursal findById(int idSucursal);
     
     List<Sucursal> findAll();
+
+    
 }
