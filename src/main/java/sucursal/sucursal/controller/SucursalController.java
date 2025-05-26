@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import sucursal.sucursal.model.Personal;
 import sucursal.sucursal.model.Sucursal;
+import sucursal.sucursal.model.SucursalProveedor;
+import sucursal.sucursal.repository.SucursalProveedorRepository;
 import sucursal.sucursal.service.PersonalService;
 import sucursal.sucursal.service.SucursalService;
 
@@ -83,19 +85,23 @@ public class SucursalController {
     } else {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-}
 
-    
+    }
 
+    @Autowired
+    private SucursalProveedorRepository sucursalProveedorRepository;
 
-
-
-
-
-
-
-
-
-
+    @GetMapping("/{idSucursal}/proveedor/{idProveedor}/contratos")
+    public ResponseEntity<List<SucursalProveedor>> getContratosBySucursalAndProveedor(
+            @PathVariable int idSucursal,
+            @PathVariable int idProveedor) {
+        List<SucursalProveedor> contratos = sucursalProveedorRepository
+            .findBySucursal_IdSucursalAndProveedor_IdProveedor(idSucursal, idProveedor);
+        if (!contratos.isEmpty()) {
+            return new ResponseEntity<>(contratos, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+    }
 
 }
