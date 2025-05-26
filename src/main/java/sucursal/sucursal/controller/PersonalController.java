@@ -2,6 +2,7 @@ package sucursal.sucursal.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,7 @@ import sucursal.sucursal.service.PersonalService;
 @RestController
 @RequestMapping("/personal")
 public class PersonalController {
+    @Autowired
     private PersonalService personalService;
 
     @GetMapping()

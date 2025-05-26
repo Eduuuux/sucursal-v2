@@ -30,24 +30,28 @@ public class PersonalService {
         Personal pers = personalRepository.findById(idPersonal);
 
         if (pers != null) {
-            if (pers.getNombrePersonal() != null) {
-                personal.setNombrePersonal(pers.getNombrePersonal());
+            if (personal.getNombrePersonal() != null) {
+                pers.setNombrePersonal(personal.getNombrePersonal());
             }
 
-            if (pers.getApellidoPersonal() != null) {
-                personal.setApellidoPersonal(pers.getApellidoPersonal());
+            if (personal.getApellidoPersonal() != null) {
+                pers.setApellidoPersonal(personal.getApellidoPersonal());
             }
 
-            if (pers.getTelefonoPersonal() != null) {
-                personal.setTelefonoPersonal(pers.getTelefonoPersonal());
+            if (personal.getTelefonoPersonal() != null) {
+                pers.setTelefonoPersonal(personal.getTelefonoPersonal());
             }
-            if (pers.getCorreoPersonal() != null) {
-                personal.setCorreoPersonal(pers.getCorreoPersonal());
+            if (personal.getCorreoPersonal() != null) {
+                pers.setCorreoPersonal(personal.getCorreoPersonal());
             }
+            if (personal.getSucursal() != null && personal.getSucursal() != null) {
+            pers.setSucursal(personal.getSucursal());
+}
 
-            return personalRepository.save(personal);
-        } else {
-            return null;
+            personalRepository.save(pers);
+            return pers;
         }
-     }
+            return null;
+        
     }
+}

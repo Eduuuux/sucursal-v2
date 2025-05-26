@@ -48,7 +48,7 @@ public class SucursalController {
         }
     }
 
-    @PutMapping("/actualizar/{id}")
+    @PutMapping("/actualizar/{idSucursal}")
     public ResponseEntity<Sucursal>updateById(@PathVariable int idSucursal, @RequestBody Sucursal sucursal) {
         Sucursal suc = sucursalService.updateById(idSucursal, sucursal);
         if (suc != null) {

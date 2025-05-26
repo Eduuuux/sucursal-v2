@@ -31,36 +31,36 @@ public class SucursalService {
         Sucursal suc = sucursalRepository.findById(idSucursal);
 
         if (suc != null) {
-            if(suc.getNombreSucursal () != null) {
-                sucursal.setNombreSucursal(suc.getNombreSucursal());
+            if(sucursal.getNombreSucursal () != null) {
+                suc.setNombreSucursal(sucursal.getNombreSucursal());
             }
 
-            if(suc.getDireccionSucursal() != null) {
-                sucursal.setDireccionSucursal(suc.getDireccionSucursal());
+            if(sucursal.getDireccionSucursal() != null) {
+                suc.setDireccionSucursal(sucursal.getDireccionSucursal());
             }
 
-            if(suc.getPoliticasLocales() != null) {
-                sucursal.setPoliticasLocales(suc.getPoliticasLocales());
+            if(sucursal.getPoliticasLocales() != null) {
+                sucursal.setPoliticasLocales(sucursal.getPoliticasLocales());
             }
 
-            if(suc.getHorarioEntrada() != null) {
-                sucursal.setHorarioEntrada(suc.getHorarioEntrada());
+            if(sucursal.getHorarioEntrada() != null) {
+                suc.setHorarioEntrada(sucursal.getHorarioEntrada());
             }
             
-            if(suc.getHorarioSalida() != null) {
-                sucursal.setHorarioSalida(suc.getHorarioSalida());
+            if(sucursal.getHorarioSalida() != null) {
+                suc.setHorarioSalida(sucursal.getHorarioSalida());
             }
             
-            if(suc.getTelefonoSucursal() != null) {
-                sucursal.setTelefonoSucursal(suc.getTelefonoSucursal());
+            if(sucursal.getTelefonoSucursal() != null) {
+                suc.setTelefonoSucursal(sucursal.getTelefonoSucursal());
             }
 
-            if(suc.getCodigoPostalSucursal() != 0) {
-                sucursal.setCodigoPostalSucursal(suc.getCodigoPostalSucursal());
+            if(sucursal.getCodigoPostalSucursal() != 0) {
+                suc.setCodigoPostalSucursal(sucursal.getCodigoPostalSucursal());
             }
 
-            if(suc.getCiudadSucursal() != null) {
-                sucursal.setCiudadSucursal(suc.getCiudadSucursal());
+            if(sucursal.getCiudadSucursal() != null) {
+                suc.setCiudadSucursal(sucursal.getCiudadSucursal());
             }
 
             sucursalRepository.save(suc);
