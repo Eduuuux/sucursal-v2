@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import sucursal.sucursal.DTO.SucursalProveedorDTO;
 import sucursal.sucursal.model.Personal;
 import sucursal.sucursal.model.Sucursal;
 import sucursal.sucursal.model.SucursalProveedor;
@@ -90,18 +91,24 @@ public class SucursalController {
 
     @Autowired
     private SucursalProveedorRepository sucursalProveedorRepository;
-
-    @GetMapping("/{idSucursal}/proveedor/{idProveedor}/contratos")
-    public ResponseEntity<List<SucursalProveedor>> getContratosBySucursalAndProveedor(
-            @PathVariable int idSucursal,
-            @PathVariable int idProveedor) {
-        List<SucursalProveedor> contratos = sucursalProveedorRepository
-            .findBySucursal_IdSucursalAndProveedor_IdProveedor(idSucursal, idProveedor);
-        if (!contratos.isEmpty()) {
-            return new ResponseEntity<>(contratos, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
+    
+@GetMapping("/{idSucursal}/contratos")
+public ResponseEntity<List<SucursalProveedorDTO>> getContratosBySucursal(@PathVariable int idSucursal) {
+    List<SucursalProveedor> contratos = sucursalProveedorRepository.findBySucursal_IdSucursal(idSucursal);
+    if (!contratos.isEmpty()) {
+        // Transformar los datos en DTOs
+        List<SucursalProveedorDTO> contratosDTO = contratos.stream()
+            .map(contrato -> new SucursalProveedorDTO(
+                contrato.getId(),
+                contrato.getSucursal().getNombreSucursal(),
+                contrato.getSucursal().getDireccionSucursal(),
+                contrato.getProveedor().getNombreProveedor(),
+                contrato.getProveedor().getProductoProveedor()
+            ))
+            .toList();
+        return new ResponseEntity<>(contratosDTO, HttpStatus.OK);
+    } else {
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
+}
 }

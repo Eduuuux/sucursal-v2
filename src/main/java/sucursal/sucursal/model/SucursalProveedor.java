@@ -1,9 +1,13 @@
 package sucursal.sucursal.model;
 
+import java.time.LocalDate;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -15,21 +19,22 @@ import lombok.Data;
 @Entity
 @Table(name = "sucursal_proveedor")
 @Data
+
 public class SucursalProveedor {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @ManyToOne
+    
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idSucursal", nullable = false)
     @JsonIgnore
+
     private Sucursal sucursal;
 
-    @Column(name = "fecha_creacion", nullable = false, updatable = false)
-    private java.time.LocalDateTime fechaContrato = java.time.LocalDateTime.now();
-
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idProveedor", nullable = false)
     @JsonIgnore
+    
     private Proveedor proveedor;
 }
