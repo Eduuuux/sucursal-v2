@@ -50,7 +50,10 @@ public class PersonalService {
             }
             if (personal.getSucursal() != null && personal.getSucursal() != null) {
             pers.setSucursal(personal.getSucursal());
-}
+            if (personal.getSucursal().getIdSucursal() == 0) {
+                pers.setSucursal(null);
+            }
+            }
 
             personalRepository.save(pers);
             return pers;
@@ -58,4 +61,15 @@ public class PersonalService {
             return null;
         
     }
+
+    public Personal deleteById(int idPersonal) {
+        Personal pers = personalRepository.findById(idPersonal);
+        if (pers != null) {
+            personalRepository.delete(pers);
+            return pers;
+        }
+        return null;
+    }
+
+
 }

@@ -76,6 +76,15 @@ public class SucursalService {
 
     }
 
+    public Sucursal deleteById(int idSucursal) {
+        Sucursal suc = sucursalRepository.findById(idSucursal);
+        if (suc != null) {
+            sucursalRepository.delete(suc);
+            return suc;
+        }
+        return null;
+    }
+
 
 
 

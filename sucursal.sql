@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-05-2025 a las 17:15:18
+-- Tiempo de generación: 27-05-2025 a las 10:16:16
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -42,8 +42,6 @@ CREATE TABLE `personal` (
 --
 
 INSERT INTO `personal` (`id_personal`, `apellido_personal`, `correo_personal`, `nombre_personal`, `rut_personal`, `telefono_personal`, `id_sucursal`) VALUES
-(1, 'Pérez', 'jperez@example.com', 'Juan', '12.345.678-9', '5551000001', 1),
-(2, 'García', 'mgarcia@example.com', 'María', '11.223.344-5', '5551000002', 1),
 (3, 'López', 'clopez@example.com', 'Carlos', '13.456.789-0', '5551000003', 2),
 (4, 'Rodríguez', 'arodriguez@example.com', 'Ana', '14.567.890-1', '5551000004', 2),
 (5, 'Hernández', 'jhernandez@example.com', 'Jorge', '15.678.901-2', '5551000005', 3),
@@ -56,7 +54,10 @@ INSERT INTO `personal` (`id_personal`, `apellido_personal`, `correo_personal`, `
 (12, 'Ortiz', 'rortiz@example.com', 'Ricardo', '22.345.678-9', '5551000012', 7),
 (13, 'Morales', 'mmorales@example.com', 'Manuel', '23.456.789-0', '5551000013', 7),
 (14, 'Vargas', 'svargas@example.com', 'Sofía', '24.567.890-1', '5551000014', 8),
-(15, 'Castro', 'jcastro@example.com', 'Javiera', '25.678.901-2', '5551000015', 9);
+(15, 'Castro', 'jcastro@example.com', 'Javiera', '25.678.901-2', '5551000015', 9),
+(17, 'Péasdasdrez', 'jperez@example.com', 'asdasdasasdasdasd', 'wuwuwuuwwuuw', '5551000001', 2),
+(18, 'aasdas', 'brua@example.com', 'bryan', '123123123', '93939393', 3),
+(19, 'aaaaaaaaaaaaasdas', 'brua@example.com', 'bryasdan', '1123', '93939393', 4);
 
 -- --------------------------------------------------------
 
@@ -113,7 +114,6 @@ CREATE TABLE `sucursal` (
 --
 
 INSERT INTO `sucursal` (`id_sucursal`, `ciudad_sucursal`, `codigo_postal_sucursal`, `direccion_sucursal`, `horario_entrada`, `horario_salida`, `nombre_sucursal`, `politicas_locales`, `telefono_sucursal`) VALUES
-(1, 'Ciudad de México', 1000, 'Av. Insurgentes Sur 1234', '08:00:00.000000', '17:00:00.000000', 'Sucursal Centro', 'Uso obligatorio de cubrebocas', '5551234567'),
 (2, 'Guadalajara', 44100, 'Av. Juárez 567', '09:00:00.000000', '18:00:00.000000', 'Sucursal Minerva', 'Prohibido fumar en interiores', '3336547890'),
 (3, 'Monterrey', 64000, 'Calle Zaragoza 89', '08:30:00.000000', '17:30:00.000000', 'Sucursal Monterrey Centro', 'No se permite ingreso con mascotas', '8187654321'),
 (4, 'Puebla', 72000, 'Blvd. Hermanos Serdán 321', '10:00:00.000000', '19:00:00.000000', 'Sucursal Angelópolis', 'Acceso solo con identificación', '2221122334'),
@@ -122,7 +122,11 @@ INSERT INTO `sucursal` (`id_sucursal`, `ciudad_sucursal`, `codigo_postal_sucursa
 (7, 'Tijuana', 22000, 'Av. Revolución 888', '08:00:00.000000', '17:00:00.000000', 'Sucursal Zona Centro', 'Prohibido el ingreso sin cita', '6647654321'),
 (8, 'León', 37000, 'Blvd. López Mateos 345', '09:00:00.000000', '18:00:00.000000', 'Sucursal León Oriente', 'Estacionamiento exclusivo para clientes', '4771112233'),
 (9, 'San Luis Potosí', 78000, 'Calle Universidad 77', '08:00:00.000000', '17:00:00.000000', 'Sucursal San Luis Centro', 'Respetar el aforo máximo', '4445678901'),
-(10, 'Cancún', 77500, 'Av. Tulum 987', '10:00:00.000000', '19:00:00.000000', 'Sucursal Cancún Zona Hotelera', 'Prohibido uso de celulares en ventanilla', '9982345678');
+(10, 'Cancún', 77500, 'Av. Tulum 987', '10:00:00.000000', '19:00:00.000000', 'Sucursal Cancún Zona Hotelera', 'Prohibido uso de celulares en ventanilla', '9982345678'),
+(11, 'Ciudad de concep', 1111000, 'Av. lot a1 124', '08:00:00.000000', '17:00:00.000000', 'Sucursal lota', 'ser lotino', '5551234567'),
+(12, 'Ciuuasdasduuuuuuu', 1, 'a', '03:00:00.000000', '14:00:00.000000', 'a1111', 'ser lasdasotino', '512317'),
+(13, 'Ciuuuuuuuuu', 1, 'a', '03:00:00.000000', '14:00:00.000000', 'a', 'ser aaaaaaaaaaaaa', '512317'),
+(14, 'Ciu', 111100022, 'Av. lot a1 asasdasdasdas124', '08:00:00.000000', '17:00:00.000000', 'Sucursal coroasaaasdassdassdnel', 'ser aaaaaaaaaaaaaaaaa', '5551234as567');
 
 -- --------------------------------------------------------
 
@@ -141,10 +145,8 @@ CREATE TABLE `sucursal_proveedor` (
 --
 
 INSERT INTO `sucursal_proveedor` (`id`, `id_proveedor`, `id_sucursal`) VALUES
-(1, 1, 1),
-(2, 2, 1),
 (3, 3, 2),
-(4, 1, 3),
+(4, 4, 4),
 (5, 4, 4),
 (6, 5, 5),
 (7, 6, 6),
@@ -193,7 +195,7 @@ ALTER TABLE `sucursal_proveedor`
 -- AUTO_INCREMENT de la tabla `personal`
 --
 ALTER TABLE `personal`
-  MODIFY `id_personal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_personal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
@@ -205,7 +207,7 @@ ALTER TABLE `proveedor`
 -- AUTO_INCREMENT de la tabla `sucursal`
 --
 ALTER TABLE `sucursal`
-  MODIFY `id_sucursal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_sucursal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `sucursal_proveedor`

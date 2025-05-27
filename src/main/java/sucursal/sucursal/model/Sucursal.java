@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -55,4 +56,8 @@ public class Sucursal {
     @OneToMany(mappedBy = "sucursal", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonBackReference
     private List<SucursalProveedor> sucursalProveedores;
+
+    @OneToMany(mappedBy = "sucursal", cascade = CascadeType.REMOVE)
+    @JsonManagedReference
+    private List<Personal> personal;
 }
