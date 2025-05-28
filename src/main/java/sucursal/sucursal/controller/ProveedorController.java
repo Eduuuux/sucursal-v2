@@ -15,7 +15,7 @@ import sucursal.sucursal.service.ProveedorService;
 
 
 @RestController
-@RequestMapping("/proveedor")
+@RequestMapping("api/proveedor")
 public class ProveedorController {
     @Autowired
     private ProveedorService proveedorService;

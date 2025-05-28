@@ -24,7 +24,7 @@ import sucursal.sucursal.service.PersonalService;
 
 
 @RestController
-@RequestMapping("/personal")
+@RequestMapping("api/personal")
 public class PersonalController {
     @Autowired
     private PersonalService personalService;

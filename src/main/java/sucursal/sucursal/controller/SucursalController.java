@@ -28,7 +28,7 @@ import sucursal.sucursal.service.SucursalService;
 
 
 @RestController
-@RequestMapping("/sucursal")
+@RequestMapping("api/sucursal")
 public class SucursalController {
     @Autowired
     private SucursalService sucursalService;
